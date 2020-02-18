@@ -35,7 +35,7 @@ regc = re.compile(reg)
 def get_default_boost_libs_suffix(path):
     import glob
     boost_libs_suffix=None
-    libname = 'boost_python'
+    libname = 'boost_system'
     bp = glob.glob(os.path.join(path,'*'+libname+'*.*'))
     if not bp is None and len(bp) > 0:
         bp = os.path.basename(bp[0])

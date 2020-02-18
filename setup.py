@@ -7,10 +7,25 @@ from setuptools import setup
 pj= os.path.join
 
 
-from openalea.deploy.metainfo import read_metainfo
-metadata = read_metainfo('metainfo.ini', verbose=True)
-for key,value in metadata.items():
-    exec("%s = '%s'" % (key, value))
+# from openalea.deploy.metainfo import read_metainfo
+# metadata = read_metainfo('metainfo.ini', verbose=True)
+# for key,value in metadata.items():
+#     exec("%s = '%s'" % (key, value))
+
+name = 'OpenAlea.SConsX'
+project = 'openalea'
+namespace = 'openalea'
+pkg_name = 'openalea.sconsx'
+version = '2.2.2'
+release = '2.2'
+package = 'sconsx'
+description = 'Scons Extension to build multi-platform packages for OpenAlea and others.'
+authors = 'Christophe Pradal'
+authors_email = 'christophe.pradal@cirad.fr'
+url = 'http://openalea.gforge.inria.fr'
+license = 'Cecill-C'
+
+
 
 long_description = \
 """
@@ -42,8 +57,8 @@ setup(name = name,
                       '' : 'src'},
 
       # Dependencies
-      setup_requires = ['openalea.deploy'],
-      install_requires = [],
-      dependency_links = ['http://openalea.gforge.inria.fr/pi'],
+      #setup_requires = ['openalea.deploy'],
+      #install_requires = [],
+      #dependency_links = ['http://openalea.gforge.inria.fr/pi'],
 
       )

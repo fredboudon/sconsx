@@ -24,15 +24,15 @@ import os, sys
 from openalea.sconsx.config import *
 from .boost_base import BoostBase
 
-class Boost_Python(BoostBase):
+class Boost_Numpy(BoostBase):
 
     def __init__(self, config):
         BoostBase.__init__(self, config)
-        self.name = 'boost_python'+str(sys.version_info.major)+str(sys.version_info.minor)
+        self.name = 'boost_numpy'+str(sys.version_info.major)+str(sys.version_info.minor)
 
 
     def depends(self):
-        return BoostBase.depends(self)+['python']
+        return BoostBase.depends(self)+['boost_python']
 
     # -- reimplement this from boost_base.BoostBase --
     def get_default_flags(self):
@@ -45,14 +45,14 @@ class Boost_Python(BoostBase):
 
     # -- reimplement this from boost_base.BoostBase --
     def configure(self, config):
-        if not config.conf.CheckCXXHeader('boost/python.hpp'):
+        if not config.conf.CheckCXXHeader('boost/python/numpy.hpp'):
             print("Error: boost.python headers not found.")
             sys.exit(-1)
 
 
 def create(config):
     " Create boost tool "
-    boost = Boost_Python(config)
+    boost = Boost_Numpy(config)
 
     deps= boost.depends()
     for lib in deps:
