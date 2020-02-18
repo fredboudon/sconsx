@@ -47,8 +47,13 @@ MsvcVersion = {
 
 def get_default_msvc():
     import platform
-    version = platform.python_compiler().split()[1][2:]
-    return MsvcVersion[int(version)]
+    version = int(platform.python_compiler().split()[1][2:])
+    if version > 1910:
+        major = (version // 100) - 5
+        minor = version % 100
+        return str(major)+'.'+str(minor)
+    else:
+        return MsvcVersion[version]
 
 
 
