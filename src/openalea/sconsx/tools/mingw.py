@@ -47,7 +47,7 @@ class MinGW:
 
       # Big HACK, sorry...
       # delete all function unlike qt4 emmiter which is an instance.
-      env['SHLIBEMITTER'] = [f for f in env['SHLIBEMITTER'] if type(f) is types.InstanceType]
+      # env['SHLIBEMITTER'] = [f for f in env['SHLIBEMITTER'] if type(f) is types.InstanceType]
 
       t = Tool('mingw')
       t(env)

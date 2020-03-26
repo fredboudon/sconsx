@@ -51,6 +51,7 @@ def get_default_msvc():
     if version > 1910:
         major = (version // 100) - 5
         minor = version % 100
+        minor = minor // 10
         return str(major)+'.'+str(minor)
     else:
         return MsvcVersion[version]
